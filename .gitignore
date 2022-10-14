@@ -1,0 +1,5 @@
+*.json
+*.csv
+.idea
+test.py
+venv
