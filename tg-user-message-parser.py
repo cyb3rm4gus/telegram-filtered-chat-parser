@@ -148,9 +148,9 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("ERROR: incorrect number of arguments!")
         print("How to use it:")
-        print("    python3 tg-user-message-parser.py <chat_history_json>")
+        print("    python3 tg-user-message-parser.py <chat_history_json> <user_id>")
         print("Example:")
-        print("    python3 tg-user-message-parser.py movies_group.json")
+        print("    python3 tg-user-message-parser.py movies_group.json 12345678")
         sys.exit()
 
     filtered = []
@@ -161,7 +161,6 @@ if __name__ == "__main__":
         for item in objects:
             try:
                 if sys.argv[2] in item['from_id']:
-                    print("got match!")
                     filtered.append(item)
             except KeyError as e:
                 # sometimes TG json item has no 'from_id' field, but that's no reason to crash
